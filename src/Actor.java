@@ -1,9 +1,9 @@
-import java.util.Objects;  // Добавляем эту строку!
+import java.util.Objects;
 
-class Actor extends Person {
+public class Actor extends Person {
     private double height;
 
-    public Actor(String name, String surname, String gender, double height) {
+    public Actor(String name, String surname, Gender gender, double height) {
         super(name, surname, gender);
         this.height = height;
     }
@@ -22,9 +22,9 @@ class Actor extends Person {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Actor actor = (Actor) obj;
-        return Double.compare(actor.height, height) == 0 &&
-                Objects.equals(name, actor.name) &&
-                Objects.equals(surname, actor.surname);
+        return Double.compare(actor.height, height) == 0
+                && Objects.equals(name, actor.name)
+                && Objects.equals(surname, actor.surname);
     }
 
     @Override

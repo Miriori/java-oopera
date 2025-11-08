@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Show {
+public class Show {
     private String title;
-    private int duration;
+    private int duration; // в минутах
     private Director director;
     private List<Actor> listOfActors;
 
@@ -14,7 +14,6 @@ class Show {
         this.listOfActors = new ArrayList<>();
     }
 
-    // Геттер для поля title (необходим для наследников)
     public String getTitle() {
         return title;
     }
@@ -31,19 +30,32 @@ class Show {
         return listOfActors;
     }
 
-    public void addActor(Actor actor) {
-        if (listOfActors.contains(actor)) {
-            System.out.println("Актёр " + actor + " уже участвует в спектакле!");
-        } else {
-            listOfActors.add(actor);
-            System.out.println("Актёр " + actor + " добавлен в спектакль.");
+    // Вывести список актёров
+    public void printActorsList() {
+        System.out.println("Список актёров спектакля \"" + title + "\":");
+        for (Actor actor : listOfActors) {
+            System.out.println("- " + actor);
         }
+        System.out.println();
     }
 
+    // Добавить актёра (с проверкой на дубликаты)
+    public void addActor(Actor actor) {
+        for (Actor existing : listOfActors) {
+            if (existing.equals(actor)) {
+                System.out.println("Актёр " + actor + " уже участвует в спектакле!");
+                return;
+            }
+        }
+        listOfActors.add(actor);
+        System.out.println("Актёр " + actor + " добавлен в спектакль.");
+    }
+
+    // Заменить актёра по фамилии
     public void replaceActor(Actor newActor, String surnameToReplace) {
         int index = -1;
         for (int i = 0; i < listOfActors.size(); i++) {
-            if (listOfActors.get(i).surname.equals(surnameToReplace)) {
+            if (listOfActors.get(i).getSurname().equals(surnameToReplace)) {
                 index = i;
                 break;
             }
@@ -53,15 +65,8 @@ class Show {
             System.out.println("Актёр с фамилией " + surnameToReplace + " не найден в спектакле!");
         } else {
             listOfActors.set(index, newActor);
-            System.out.println("Актёр с фамилией " + surnameToReplace + " заменён на " + newActor + ".");
+            System.out.println("Актёр с фамилией " + surnameToReplace +
+                    " заменён на " + newActor + ".");
         }
-    }
-
-    public void printActorsList() {
-        System.out.println("Список актёров спектакля \"" + title + "\":");
-        for (Actor actor : listOfActors) {
-            System.out.println("- " + actor);
-        }
-        System.out.println();
     }
 }
