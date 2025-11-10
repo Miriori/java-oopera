@@ -37,6 +37,11 @@ public class Theatre {
         ballet.printActorsList();
         opera.printActorsList();
 
+        // Выводим список режиссеров и название спектакля
+        regularShow.printDirectorInfo();
+        ballet.printDirectorInfo();
+        opera.printDirectorInfo();
+
         Actor newActor = new Actor("Елена", "Кузнецова", Gender.FEMALE, 1.70);
         ballet.replaceActor(newActor, "Петрова");
         ballet.printActorsList();

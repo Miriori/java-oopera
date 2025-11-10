@@ -64,4 +64,7 @@ class Show {
         }
         System.out.println();
     }
+    public void printDirectorInfo() {
+        System.out.println("Спектакль: \"" + title + "\", режиссёр: " + director.getName() + " " + director.getSurname());
+    }
 }
