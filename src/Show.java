@@ -69,7 +69,7 @@ public class Show {
                     " заменён на " + newActor + ".");
         }
     }
-    // Вывести список режиссеров и название спектакля
+    // Выводится список режиссера и спектакле
     public void printDirectorInfo() {
         System.out.println("Спектакль: \"" + title + "\", режиссёр: " + director.getName() + " " + director.getSurname());
     }

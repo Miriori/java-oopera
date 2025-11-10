@@ -37,7 +37,7 @@ public class Theatre {
         ballet.printActorsList();
         opera.printActorsList();
 
-        //Выводим информацию о режиссерах и спектакле
+        //Выводится информация о режиссере и спектакле
         regularShow.printDirectorInfo();
         ballet.printDirectorInfo();
         opera.printDirectorInfo();
